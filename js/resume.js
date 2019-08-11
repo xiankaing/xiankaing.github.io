@@ -34,16 +34,26 @@ function getRandomInt(max) {
 (function ($) {
   "use strict"; // Start of use strict
 
-  // Smooth scrolling using jQuery easing
   $('.match-form').find('input[type=checkbox]').click(function () {
     var numBoxes = $('.match-form').find('input[type=checkbox]').length;
     var numChecked = $('.match-form').find('input[type=checkbox]:checked').length;
     console.log(numChecked, numBoxes)
     var current_progress = (100*numChecked/numBoxes).toFixed(0);
+    var matchText = current_progress + "% match ";
+    if (current_progress < 30) {
+      matchText +=  "😢"
+    } else if (current_progress < 60) {
+      matchText +=  "😞"
+    } else if (current_progress < 100) {
+      matchText +=  "😊"
+    } else {
+      matchText +=  "😄"
+    }
+
     $("#match-score")
       .css("width", current_progress + "%")
       .attr("aria-valuenow", current_progress)
-      .text(current_progress + "% match");
+      .text(matchText);
   });
 
 })(jQuery); // End of use strict
