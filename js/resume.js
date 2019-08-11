@@ -9,7 +9,7 @@
       if (target.length) {
         $('html, body').animate({
           scrollTop: (target.offset().top)
-        }, 1000, "easeInOutExpo");
+        }, 500, "easeInOutExpo");
         return false;
       }
     }
@@ -23,6 +23,27 @@
   // Activate scrollspy to add active class to navbar items on scroll
   $('body').scrollspy({
     target: '#sideNav'
+  });
+
+})(jQuery); // End of use strict
+
+function getRandomInt(max) {
+  return Math.floor(Math.random() * Math.floor(max));
+}
+
+(function ($) {
+  "use strict"; // Start of use strict
+
+  // Smooth scrolling using jQuery easing
+  $('.match-form').find('input[type=checkbox]').click(function () {
+    var numBoxes = $('.match-form').find('input[type=checkbox]').length;
+    var numChecked = $('.match-form').find('input[type=checkbox]:checked').length;
+    console.log(numChecked, numBoxes)
+    var current_progress = (100*numChecked/numBoxes).toFixed(0);
+    $("#match-score")
+      .css("width", current_progress + "%")
+      .attr("aria-valuenow", current_progress)
+      .text(current_progress + "% match");
   });
 
 })(jQuery); // End of use strict
