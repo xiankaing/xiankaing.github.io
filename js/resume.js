@@ -27,10 +27,6 @@
 
 })(jQuery); // End of use strict
 
-function getRandomInt(max) {
-  return Math.floor(Math.random() * Math.floor(max));
-}
-
 (function ($) {
   "use strict"; // Start of use strict
 
@@ -55,5 +51,10 @@ function getRandomInt(max) {
       .attr("aria-valuenow", current_progress)
       .text(matchText);
   });
+
+  // open resume.pdf when resume on navbar is clicked on; so that the a's href can remain #resume
+  $('#resume-nav-link').click(function() {
+    window.open('/static/resume.pdf', '_blank');
+  })
 
 })(jQuery); // End of use strict
