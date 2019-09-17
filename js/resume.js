@@ -55,6 +55,8 @@
   // open resume.pdf when resume on navbar is clicked on; so that the a's href can remain #resume
   $('#resume-nav-link').click(function() {
     window.open('/static/resume.pdf', '_blank');
-  })
+  });
+
+  $('#resume-link').text(window.location.hostname + "/static/resume.pdf");
 
 })(jQuery); // End of use strict
